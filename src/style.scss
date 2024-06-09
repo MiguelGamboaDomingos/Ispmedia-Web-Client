@@ -1,0 +1,43 @@
+.global {
+    font-family: 'Poppins', sans-serif;
+  }
+  $themes:(
+    lightness:(
+        textColor: #000,
+        backgr: white,
+        ispmedia: #fdd700,
+        softBackgr: #f7f7f7,
+        softTextcolor: #666,
+        border: lightgray,
+    ),
+    darkness:(
+        textColor: whitesmoke,
+        backgr: #222,
+        ispmedia: white,
+        softBackgr: #444,
+        softTextcolor: lightgray,
+        border: #666,
+    )
+  );    
+  @mixin themify($themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+  

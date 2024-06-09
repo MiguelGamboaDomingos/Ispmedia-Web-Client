@@ -1,0 +1,118 @@
+.login {
+    height: 100vh;
+    background-color: rgb(255, 251, 0);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  
+    .card {
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: white;
+  
+      min-height: 600px;
+      max-width: 60%;
+      overflow: hidden;
+  
+      .left {
+        border-bottom-left-radius: 100px;
+        flex: 1;
+        max-width: 45%;
+        background: linear-gradient(rgb(39, 37, 32, 0.4), rgb(255, 230, 0, 0.6)), url("https://media.licdn.com/dms/image/C4E22AQGWar8PDydwLA/feedshare-shrink_800/0/1656692366656?e=2147483647&v=beta&t=2vEEJVkrR4FwUr57q5Od4LQTKsmaS4eYzinoAv__G5g") center;
+        background-size: cover;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        color: white;
+  
+        h1 {
+          font-size: 55px;
+          line-height: 80px;
+          width: 400px;
+        }
+  
+        p {
+        }
+  
+        span {
+          font-size: 14px;
+        }
+  
+        button {
+          background-color: white;
+          width: 50%;
+          padding: 10px;
+          border: none;
+          font-weight: bold;
+          cursor: pointer;
+          font-size: 25px;
+          color: rgb(34, 34, 34);
+        }
+      }
+  
+      .right {
+        width: 40%;
+        display: flex;
+        padding: 40px;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+  
+        h1 {
+          color: rgb(34, 34, 34);
+        }
+  
+        form {
+            display: flex;
+            width: 350px;
+            flex-direction: column;
+            gap: 30px;
+  
+          input {
+            border: none;
+            border-bottom: 1px solid lightgray;
+            padding: 20px, 10px;
+            height: 30px;
+          }
+  
+          .password-container {
+            display: flex;
+            align-items: center;
+            input {
+              flex: 1;
+            }
+            .toggle-password {
+              margin-left: -30px;
+              cursor: pointer;
+            }
+          }
+  
+          button {
+            cursor: pointer;
+            width: 50%;
+            padding: 10px;
+            border: none;
+            color: rgb(34, 34, 34);
+            font-weight: bold;
+            background-color: rgb(255, 251, 0);
+          }
+        }
+  
+        .error-container {
+          height: 20px;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+  
+        .error-message {
+          color: red;
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  

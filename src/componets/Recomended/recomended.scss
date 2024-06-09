@@ -1,0 +1,28 @@
+.recomended{
+    display: flex;
+    gap: 10px;
+    height: 150px;
+    margin-bottom: 30px;
+    .recomendedItem{
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        width: 150px;
+        
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        span{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-weight: 500;
+            color: white;
+            
+        }
+        
+    }
+}
