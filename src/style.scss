@@ -1,3 +1,4 @@
+
 .global {
     font-family: 'Poppins', sans-serif;
   }
@@ -18,7 +19,8 @@
         softTextcolor: lightgray,
         border: #666,
     )
-  );    
+  );
+  
   @mixin themify($themes) {
     @each $theme, $map in $themes {
       .theme-#{$theme} & {

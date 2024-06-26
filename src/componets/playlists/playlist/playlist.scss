@@ -1,0 +1,33 @@
+@import "../../../style.scss";
+
+  .playlist-card {
+    @include themify($themes) {
+        -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        border-radius: 10px;
+      
+        color: themed("textColor");
+        min-width: 250px;
+        height: 350px;
+    margin: 10px;
+    width: 200px;
+    background-color:themed("Backgr");
+    border: 1px solid #ddd;
+    
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  
+  
+  .playlist-info {
+    padding: 10px;
+  }
+  
+  .playlist-info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}}

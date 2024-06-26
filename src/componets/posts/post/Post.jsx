@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// Post.js
+import {React, useState} from 'react';
 import "./post.scss";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
@@ -8,12 +9,13 @@ import LibraryMusicRoundedIcon from '@mui/icons-material/LibraryMusicRounded';
 import VideoLibraryRoundedIcon from '@mui/icons-material/VideoLibraryRounded';
 import { Link } from "react-router-dom";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import Comments from "../comments/Comments";
+import Comments from "../../comments/Comments";
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [mediaUrl, setMediaUrl] = useState(""); // Estado para armazenar a URL do media
   const [isPlaying, setIsPlaying] = useState(false); // Estado para controlar se o player está reproduzindo
+  const [rating, setRating] = useState(0); // Estado para armazenar a avaliação do post
 
   // Função para lidar com o clique no botão de reprodução
   const handlePlayClick = (mediaUrl) => {
@@ -55,32 +57,42 @@ const Post = ({ post }) => {
           <p>{post.desc}</p>
           <div className="media-container">
             {/* Aqui adicionamos o evento onClick para reproduzir o media */}
-            <img className="media" src={post.img} alt="" onClick={() => handlePlayClick(post.mediaUrl)} />
+            <img
+              className="media"
+              src={post.img}
+              alt=""
+              onClick={() => handlePlayClick(post.mediaUrl)}
+            />
           </div>
           <div className="info">
             <div className="item">
               <PlayArrowIcon />{post.plays}
             </div>
             <div className="item">
-              {post.type === "audio" ? (
+              {post.type === "audio"? (
                 <LibraryMusicRoundedIcon />
               ) : (
                 <VideoLibraryRoundedIcon />
               )}
               {post.duration}   
             </div>
-            <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
+            {/* <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
               <TextsmsOutlinedIcon />
               12 Críticas
+            </div> */}
+            <div className="item">
+              <span>★</span>
+              <span>{post.rating}</span>
             </div>
           </div>
+          {/* {commentOpen && <Comments/>} */}
         </div>
       </div>
       {/* Aqui você pode renderizar o player com base na URL do media */}
       {mediaUrl && (
         <div className="player">
           {/* Aqui você pode renderizar o player de vídeo ou música com base na URL do media */}
-          {post.type === "audio" ? (
+          {post.type === "audio"? (
             <audio controls src={mediaUrl} autoPlay />
           ) : (
             <video controls src={mediaUrl} autoPlay />

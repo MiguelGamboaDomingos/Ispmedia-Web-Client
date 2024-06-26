@@ -1,3 +1,10 @@
+import React from 'react';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useContext } from 'react';
+import { DarkModeContext } from './context/darkModeContext';
+import { AuthContext } from './context/authContext';
+import { PlayerProvider } from './context/playerContext'; // Corrigido para importar o PlayerProvider
+
 import './style.scss';
 import LeftBarComponent from './componets/leftBar/LeftBarComponent';
 import NavBarComponent from './componets/navbar/NavBarComponent';
@@ -13,11 +20,6 @@ import PlaylistsScreen from './pages/playlists/PlaylistsScreen';
 import MusicsScreen from './pages/musics/MusicsScreen';
 import VideosScreen from './pages/videos/VideosScreen';
 import MyMediaScreen from './pages/mymedia/MyMediaScreen';
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { useContext } from 'react';
-import { DarkModeContext } from './context/darkModeContext';
-import { AuthContext } from './context/authContext';
-import PlayerProvider from './context/playerContext';
 
 function App() {
   const { currUser } = useContext(AuthContext);

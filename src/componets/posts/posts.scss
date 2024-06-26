@@ -2,5 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define o número de colunas e o tamanho mínimo e máximo das colunas */
     gap: 50px; /* Espaço entre os itens */
+    padding: 50px;
   }
+  
   

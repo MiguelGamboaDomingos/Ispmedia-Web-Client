@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "name": "Radio FM",
+    "country": "Brasil",
+    "genre": "Pop",
+    "thumbnail": "https://example.com/radio-fm.jpg",
+    "cdnUrl": "https://cdn.radio.fm/stream"
+  },
+ 
+  {
+    "id": 3,
+    "name": "Radio Jazz",
+    "country": "França",
+    "genre": "Jazz",
+    "thumbnail": "https://example.com/radio-jazz.jpg",
+    "cdnUrl": "https://cdn.radio.jazz/stream"
+  },
+  {
+    "id": 4,
+    "name": "Radio Sertaneja",
+    "country": "Brasil",
+    "genre": "Sertanejo",
+    "thumbnail": "https://example.com/radio-sertaneja.jpg",
+    "cdnUrl": "https://cdn.radio.sertaneja/stream"
+  },
+  {
+    "id": 5,
+    "name": "Radio MPB",
+    "country": "Brasil",
+    "genre": "MPB",
+    "thumbnail": "https://example.com/radio-mpb.jpg",
+    "cdnUrl": "https://cdn.radio.mpB/stream"
+  },
+  
+  
+  {
+    "id": 9,
+    "name": "Radio Electronic",
+    "country": "Alemanha",
+    "genre": "Eletrônica",
+    "thumbnail": "https://example.com/radio-electronic.jpg",
+    "cdnUrl": "https://cdn.radio.electronic/stream"
+  },
+  
+  {
+    "id": 12,
+    "name": "Radio Folk",
+    "country": "Irlanda",
+    "genre": "Folk",
+    "thumbnail": "https://example.com/radio-folk.jpg",
+    "cdnUrl": "https://cdn.radio.folk/stream"
+  },
+  {
+    "id": 13,
+    "name": "Radio Reggae",
+    "country": "Jamaica",
+    "genre": "Reggae",
+    "thumbnail": "https://example.com/radio-reggae.jpg",
+    "cdnUrl": "https://cdn.radio.reggae/stream"
+  },
+ 
+
+  {
+    "id": 16,
+    "name": "Radio Kairós",
+    "country": "Angola",
+    "genre": "Gospel",
+    "thumbnail": "https://example.com/radio-kairos.jpg",
+    "cdnUrl": "https://radios.vpn.sapo.pt/AO/radio9.mp3"
+  },
+  {
+    "id": 17,
+    "name": "Radio Luanda",
+    "country": "Angola",
+    "genre": "Variedades",
+    "thumbnail": "https://example.com/radio-luanda.jpg",
+    "cdnUrl": "https://radios.vpn.sapo.pt/AO/radio11.mp3"
+  },
+  {
+    "id": 18,
+    "name": "Radio Viana",
+    "country": "Angola",
+    "genre": "Variedades",
+    "thumbnail": "https://example.com/radio-viana.jpg",
+    "cdnUrl": "https://stream1.svrdedicado.org/8358/stream"
+  },
+  {
+    "id": 19,
+    "name": "Radio Cinco",
+    "country": "Angola",
+    "genre": "Variedades",
+    "thumbnail": "https://example.com/radio-cinco.jpg",
+    "cdnUrl": "https://radios.vpn.sapo.pt/AO/radio5.mp3"
+  },
+  {
+    "id": 20,
+    "name": "Radio Mais",
+    "country": "Angola",
+    "genre": "Variedades",
+    "thumbnail": "https://example.com/radio-mais.jpg",
+    "cdnUrl": "https://radios.justweb.pt/8050/stream"
+  }
+]

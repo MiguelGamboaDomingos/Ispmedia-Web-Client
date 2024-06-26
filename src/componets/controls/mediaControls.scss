@@ -1,0 +1,22 @@
+.media-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  input[type="range"] {
+    width: 100px;
+  }
+  

@@ -1,0 +1,14 @@
+@import "../../style.scss";
+
+.playlists-container{
+   
+    @include themify($themes) {
+       
+        background-color: themed("softBackgr");
+        padding: 10px 20px;
+        p{
+            color: themed("textColor");
+        }
+    }
+    
+}

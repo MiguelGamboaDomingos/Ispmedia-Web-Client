@@ -1,0 +1,52 @@
+@import "../../style.scss";
+
+.radio-list {
+  @include themify($themes) {
+    background-color: themed("softBackgr");
+    padding: 10px 20px;
+
+    .tabs {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      background-color: themed(backgr);
+      margin: 0 0 20px 0;
+      border-radius: 20px;
+    
+
+      li {
+        margin-right: 10px;
+        padding:  20px 0px;
+
+        a {
+         
+          margin: 10px 15px;
+          cursor: pointer;
+          background-color: themed("tabBg");
+          color: themed("textColor");
+          border-radius: 4px 4px 0 0;
+          transition: background-color 0.3s, color 0.3s;
+          text-align: center;
+          width: 120px; // Ajuste a largura conforme necessário
+          white-space: pre-wrap; // Permite quebra de linha
+          word-wrap: break-word;
+
+          &.active {
+            background-color: themed("activeTabBg");
+            color: themed("activeTextColor");
+            border-bottom: 2px solid themed("activeTabBorder");
+          }
+
+          &:hover {
+            background-color: themed("hoverTabBg");
+            color: themed("hoverTextColor");
+          }
+        }
+      }
+    }
+
+    p {
+      color: themed("textColor");
+    }
+  }
+}
