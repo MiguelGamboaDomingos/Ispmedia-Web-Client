@@ -1,6 +1,9 @@
 @import "../../style.scss";
 
 .leftbar{
+  @include mobile{
+    display:none;
+  }
     @include themify($themes){
     flex: 1.3;
     position: sticky;
@@ -21,38 +24,50 @@
             height: 0.5px;
             background-color: themed("border");
           }
-        .menu{
+          .menu {
             display: flex;
             flex-direction: column;
             gap: 15px;
-           .item{
-                color: themed("textColor");
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                padding: 10px;
-                 /* Hover effect */
-          &:hover {
-            transform: scale(1.1); /* Zoom on hover */
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
-            
-            background-color:  themed("textColor");
-            color: themed("softBackgr");
-            
-          }
-
-          &:hover::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: themed("softBackgr");;
-            color: themed("textColor");
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Play button overlay */
-            opacity: 0; /* Initially hidden */
-            transition: opacity 0.3s ease-in-out;
+          
+           .item {
+            span{
+                 @include tablet{
+                  display:none;
+                }
+            }
+              color: themed("textColor");
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              padding: 10px;
+              border-radius: 10px;
+              /* Hover effect */
+              &:hover {
+                transform: scale(1.1); /* Zoom on hover */
+                transition: transform 0.3s ease-in-out; /* Smooth transition */
+                
+                background-color: rgba($color: #8a8a8a, $alpha: 0.1);
+              }
+          
+              &:hover::after {
+               
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: themed("softBackgr");;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Play button overlay */
+                opacity: 0; /* Initially hidden */
+                transition: opacity 0.3s ease-in-out;
+              }
+          
+              &.active {
+                background-color: rgba($color: #ffd900, $alpha: 0.8); /* Amarelo */
+                color:themed(textColor);
+              }
+            }
           }
                 .icon{
                     width: 30px;
@@ -61,5 +76,3 @@
            } 
         }
     }
-}
-}

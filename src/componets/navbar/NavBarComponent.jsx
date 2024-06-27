@@ -22,16 +22,16 @@ const NavBarComponent = () => {
             <Link to="/" style={{textDecoration: "none"}}>
             <span>ISPMedia</span>
             </Link>
-            <HomeRoundedIcon/>
+            
             <div className="search">
             <SearchRoundedIcon/>
             <input type="text" placeholder="Search..." />
             </div>
         </div>
         <div className="right">
-        {darkMode ? <DarkModeRoundedIcon onClick={toggle}/>:<WbSunnyRoundedIcon onClick={toggle}/> }
+        {darkMode ? <DarkModeRoundedIcon className="mode" onClick={toggle}/>:<WbSunnyRoundedIcon onClick={toggle}/> }
           <NotificationsRoundedIcon/>
-          <AccountCircleRoundedIcon/>
+          <AccountCircleRoundedIcon className="mode"/>
           <div className="user">
             <img src={currUser.profilePic}/>
             <span>{currUser.name}</span>

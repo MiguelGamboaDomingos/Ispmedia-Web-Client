@@ -3,12 +3,22 @@
 .home{
    
     @include themify($themes) {
+        @include mobile{
+            padding: 10px;
+          }
        
         background-color: themed("softBackgr");
         padding: 20px 50px;
         p{
             color: themed("textColor");
         }
-    }
     
-}
+        @include mobile {
+            padding: 10px;
+          }
+      
+          @include tablet{
+            padding: 20px;
+          }
+        }
+       }

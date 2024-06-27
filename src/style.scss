@@ -14,7 +14,7 @@
     darkness:(
         textColor: whitesmoke,
         backgr: #222,
-        ispmedia: white,
+        ispmedia: #fdd700,
         softBackgr: #444,
         softTextcolor: lightgray,
         border: #666,
@@ -43,3 +43,18 @@
     @return map-get($theme-map, $key);
   }
   
+@mixin mobile{
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+@mixin neerfull {
+  @media (max-width: 960px) {
+    @content;
+  }
+}

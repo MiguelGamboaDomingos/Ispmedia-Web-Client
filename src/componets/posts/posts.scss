@@ -1,8 +1,21 @@
+@import "../../style.scss";
 .posts {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define o número de colunas e o tamanho mínimo e máximo das colunas */
     gap: 50px; /* Espaço entre os itens */
-    padding: 50px;
+    padding: 10px;
+    
+    @include mobile {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 50px;;
+    }
+
+    @include tablet{
+   
+     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+     padding: 10px;
+    }
   }
+ 
   
   
