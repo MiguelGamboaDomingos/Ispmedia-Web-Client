@@ -1,54 +1,53 @@
-
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Posts from "../../componets/posts/Posts";
-import Playlists from "../../componets/playlists/Playlists";
+import Playlists from "../../componeTs/playlists/Playlists";
 import Friends from "../../componets/friends/Friends";
-import "./profile.scss"
+import "./profile.scss";
 import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
-
-
+import useProfile from '../../hooks/useProfile'; // Importando o hook para buscar o perfil
 
 const ProfileScreen = () => {
-  const [activeTab, setActiveTab] = useState("Posts");
-  
+  const { id } = useParams();
+  const { profile, loading, error } = useProfile(id);
+  const [activeTab, setActiveTab] = useState("Tudo");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
+  // Verificação de carregamento ou erro
+  if (loading) return <div>Carregando perfil...</div>;
+  if (error) return <div>Erro ao carregar perfil. Tente novamente mais tarde.</div>;
 
   return (
     <div className="profile">
       <div className="images">
         <img
-          src="https://images.pexels.com/photos/13440765/pexels-photo-13440765.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src={profile.cover || 'https://via.placeholder.com/1260x750.png?text=Cover'}
           alt=""
           className="cover"
         />
         <img
-          src="https://images.pexels.com/photos/14028501/pexels-photo-14028501.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+          src={profile.profilePic || 'https://via.placeholder.com/1600x900.png?text=Profile+Pic'}
           alt=""
           className="profilePic"
         />
       </div>
       <div className="profileContainer">
         <div className="uInfo">
-          
           <div className="center">
-            <span>Jane Doe</span>
+            <span>{profile.fullName}</span>
             <div className="info">
               <div className="item">
-          
-                <span>Bio Lorem ipsum</span>
+                <span>{profile.bio}</span>
               </div>
             </div>
             <div className="buttons">
               <PersonAddRoundedIcon className="icon"/>
-              
+              {/* Aqui podem ser adicionados outros botões de ação */}
             </div>
           </div>
-
-         
         </div>
         <div className="tabs">
           <button
@@ -75,13 +74,17 @@ const ProfileScreen = () => {
           >
             Amigos
           </button>
-          
         </div>
         {activeTab === "Posts" && <Posts />}
         {activeTab === "Playlists" && <Playlists />}
         {activeTab === "Amigos" && <Friends />}
-        {activeTab === "Tudo" && <Posts /> }
-       
+        {activeTab === "Tudo" && (
+          <>
+            <Posts />
+            <Playlists />
+            <Friends />
+          </>
+        )}
       </div>
     </div>
   );

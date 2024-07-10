@@ -1,86 +1,28 @@
 import Post from "./post/Post";
 import "./posts.scss";
+import { useQuery } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 
-const Posts = () => {
-  //TEMPORARY
-  const posts = [
-    {
-      id: 1,
-      name: "Z  Edu",
-      userId: 1,
-      profilePic: "profilePicUrl1",
-      desc: "Éramos felizes e não sabiamos",
-      mediaUrl: "mediaUrl1",
-      img: "imgUrl1",
-      duration: "2:05",
-      type: "video",
-      plays: 100,
-      rating: 4.5, // adicionado rating
-    },
-    {
-      id: 2,
-      name: "Jesus Cristo",
-      userId: 2,
-      profilePic: "profilePicUrl2",
-      desc: "Obrigado @designa_designer",
-      mediaUrl: "mediaUrl2",
-      img: "imgUrl2",
-      duration: "31:42",
-      type: "video",
-      plays: 100,
-      rating: 4.2, // adicionado rating
-    },
-    {
-      id: 1,
-      name: "Z  Edu",
-      userId: 1,
-      profilePic: "profilePicUrl1",
-      desc: "Éramos felizes e não sabiamos",
-      mediaUrl: "mediaUrl3",
-      img: "imgUrl1",
-      duration: "3:45",
-      type: "audio",
-      plays: 1230,
-      rating: 4.8, // adicionado rating
-    },
-    {
-      id: 1,
-      name: "Z  Edu",
-      userId: 1,
-      profilePic: "profilePicUrl1",
-      desc: "Éramos felizes e não sabiamos",
-      mediaUrl: "mediaUrl4",
-      img: "imgUrl3",
-      duration: "3:45",
-      type: "audio",
-      plays: 100,
-      rating: 4.1, // adicionado rating
-    },
-    {
-      id: 2,
-      name: "Jesus Cristo",
-      userId: 2,
-      profilePic: "profilePicUrl2",
-      desc: "Se eu fosse negro... hahaha",
-      mediaUrl: "mediaUrl5",
-      img: "imgUrl4",
-      duration: "3:45",
-      type: "audio",
-      plays: 100,
-      rating: 4.6, // adicionado rating
-    },
-  ];
+const Posts = ({ userId }) => {
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["posts", userId],
+    queryFn: () =>
+      makeRequest.get("/posts?userId=" + userId).then((res) => {
+        return res.data;
+      }),
+  });
 
-  // calcular média de rating
-  const averageRating = posts.reduce((acc, post) => acc + post.rating, 0) / posts.length;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>An error occurred: {error.message}</div>;
+  if (!data) return <div>No data available</div>;
 
   return (
     <div className="posts">
-      {posts.map((post) => (
+      {data.map((post) => (
         <Post key={post.id} post={post} />
       ))}
-     
     </div>
   );
 };
+
 export default Posts;

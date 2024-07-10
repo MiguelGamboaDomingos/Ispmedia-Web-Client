@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/authContext';
 import { PlayerProvider } from './context/playerContext'; // Corrigido para importar o PlayerProvider
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import './style.scss';
 import LeftBarComponent from './componets/leftBar/LeftBarComponent';
 import NavBarComponent from './componets/navbar/NavBarComponent';
@@ -17,13 +17,15 @@ import RegisterScreen from './pages/register/RegisterScreen';
 import FriendsScreen from './pages/friends/FriendsScreen';
 import RadioScreen from './pages/radio/RadiosScreen';
 import PlaylistsScreen from './pages/playlists/PlaylistsScreen';
-import MusicsScreen from './pages/musics/MusicsScreen';
+import MusicsScreen from './pages/mymedia/musics/MusicsScreen';
 import VideosScreen from './pages/videos/VideosScreen';
 import MyMediaScreen from './pages/mymedia/MyMediaScreen';
 
 function App() {
   const { currUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
+  
+  const queryClient = new QueryClient();
 
   const Layout = () => (
     <div className={`theme-${darkMode ? 'darkness' : 'lightness'}`}>
@@ -46,6 +48,7 @@ function App() {
   };
 
   return (
+    <QueryClientProvider client={queryClient}>
     <PlayerProvider>
       <div className="global">
         <Routes>
@@ -65,6 +68,7 @@ function App() {
         </Routes>
       </div>
     </PlayerProvider>
+    </QueryClientProvider >
   );
 }
 

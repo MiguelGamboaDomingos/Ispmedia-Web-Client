@@ -10,13 +10,11 @@ export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const login = async (inputs) => {
-    try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", inputs);
-      setCurrUser(res.data);
-      navigate("/");
-    } catch (err) {
-      console.error(err);
-    }
+    const res = await axios.post("http://localhost:5000/api/auth/login", inputs, {
+      withCredentials: true,
+    });
+
+    setCurrUser(res.data)
   };
 
   const logout = () => {
